@@ -8,6 +8,13 @@ ALLOWED_USERS = os.environ.get("ALLOWED_USERS")
 
 allowedUsersReadable = json.loads(ALLOWED_USERS)
 
+#Checken ob CURRENT_USER Administrator ist. Falls ja, alle Aenderungen erlauben
+for user in allowedUsersReadable["administrators"]:
+    if user == CURRENT_USER:
+        print("Welcome Administrator!")
+        sys.exit(0)
+
+
 #Der erste oberste Pfad wird als einzige gueltige Firma anerkannt
 #Existiert diese nicht, oder aendert sie sich innerhalb eines Pull Requests, ist der Test ungueltig
 currentCompany = CHANGED_FILES.split()[0].split('/')[0]
@@ -23,8 +30,8 @@ for file in CHANGED_FILES.split():
 #Checken ob CURRENT_USER für currentCompany zugelassen ist
 try:
     for i in range(len(allowedUsersReadable)):
-        if allowedUsersReadable[i][currentCompany]:
-            for user in allowedUsersReadable[i][currentCompany]:
+        if allowedUsersReadable[currentCompany]:
+            for user in allowedUsersReadable[currentCompany]:
                 if user == CURRENT_USER:
                     print("User is valid!")
                     sys.exit(0)
@@ -32,3 +39,7 @@ try:
 except (KeyError):
     print("You are not allowed, to make changes in this directory!")
     sys.exit(1) 
+
+
+print("You are not allowed, to make changes in this directory!")
+sys.exit(1) 
