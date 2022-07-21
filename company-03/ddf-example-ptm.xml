@@ -12,7 +12,7 @@
     <!-- A PTM can only transmit -->
      <EURID>
        <EEP  LinkEntry="Outbound">
-         <Rorga>0xF6</Rorga>
+         <Rorg>0xF6</Rorg>
          <Func>0x02</Func>
          <Type>0x02</Type>
        </EEP>
