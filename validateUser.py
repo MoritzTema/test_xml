@@ -21,7 +21,7 @@ if CHANGED_FILES == "":
     print("No changes detected.")
     sys.exit(0)
 
-        
+print(CHANGED_FILES)        
 #Der erste oberste Pfad wird als einzige gueltige Firma anerkannt
 #Existiert diese nicht, oder aendert sie sich innerhalb eines Pull Requests, ist der Test ungueltig
 currentCompany = CHANGED_FILES.split()[0].split('/')[0]
