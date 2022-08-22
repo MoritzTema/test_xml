@@ -1,7 +1,9 @@
 import os
 import sys
+import re
 from lxml import etree
 
+CHANGED_FILES = os.environ.get("CHANGED_FILES")
 
 def validate(xml_path: str, xsd_path: str) -> bool:
 
@@ -14,7 +16,7 @@ def validate(xml_path: str, xsd_path: str) -> bool:
     return result
 
 
-rootdir = os.getcwd()
+rootdir = CHANGED_FILES.split()[0]
 #Durchlaueft das gesamte Repo und checkt alle .xml Dateien
 
 for subdir, dirs, files in os.walk(rootdir):
