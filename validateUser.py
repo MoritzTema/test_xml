@@ -22,6 +22,11 @@ if CHANGED_FILES == "":
     sys.exit(0)
 
 print(CHANGED_FILES)        
+
+for file in CHANGED_FILES.split():
+    print(file.split('/')[-1])
+    
+
 #Der erste oberste Pfad wird als einzige gueltige Firma anerkannt
 #Existiert diese nicht, oder aendert sie sich innerhalb eines Pull Requests, ist der Test ungueltig
 currentCompany = CHANGED_FILES.split()[0].split('/')[0]
