@@ -38,7 +38,7 @@ for subdir, dirs, files in os.walk(rootdir):
     for file in files:
         filepath = subdir + os.sep + file
         if filepath.endswith('.xml'):
-            if validate(filepath, "./schema.xsd"):
+            if validate(filepath, ".github/schema.xsd"):
                 print(filepath + " valid!")
             else:
                 print(filepath + " not vaild!")
