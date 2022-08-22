@@ -16,14 +16,14 @@ def validate(xml_path: str, xsd_path: str) -> bool:
     return result
 
 
-#Setz den rootdir auf den aktuellen Firmenordner
-rootdir = CHANGED_FILES.split()[0].split('/')[0]
-
 #Wenn keine Aenderungen erkannt werden, bzw. eine Aenderung 1:1 rueckgaengig gemacht wurde, 
 #ist der Test gueltig
 if CHANGED_FILES == "":
     print("No changes detected.")
     sys.exit(0)
+
+#Setz den rootdir auf den aktuellen Firmenordner
+rootdir = CHANGED_FILES.split()[0].split('/')[0]
 
 #Checkt REGEX, ob Dateinamen gueltig sind
 #Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
