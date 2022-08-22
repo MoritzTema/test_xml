@@ -1,6 +1,7 @@
 import os 
 import json
 import sys
+import re
 
 CHANGED_FILES = os.environ.get("CHANGED_FILES")
 CURRENT_USER = os.environ.get("CURRENT_USER")
@@ -21,11 +22,12 @@ if CHANGED_FILES == "":
     print("No changes detected.")
     sys.exit(0)
 
-print(CHANGED_FILES)        
-
+#Checkt REGEX, ob Dateinamen gueltig sind
+#Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
 for file in CHANGED_FILES.split():
-    print(file.split('/')[-1])
-    
+    if not re.match('^[a-z0-9-]*\.xml?$', file.split('/')[-1]):
+        print("Invalid file name!")
+        sys.exit(1)
 
 #Der erste oberste Pfad wird als einzige gueltige Firma anerkannt
 #Existiert diese nicht, oder aendert sie sich innerhalb eines Pull Requests, ist der Test ungueltig
