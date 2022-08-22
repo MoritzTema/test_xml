@@ -22,10 +22,10 @@ if CHANGED_FILES == "":
     print("No changes detected.")
     sys.exit(0)
 
-#Setz den rootdir auf den aktuellen Firmenordner
+#Setzt den rootdir auf den aktuellen Firmenordner
 rootdir = CHANGED_FILES.split()[0].split('/')[0]
 
-#Checkt REGEX, ob Dateinamen gueltig sind
+#Checkt, ob Dateinamen gueltig sind
 #Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
 for file in CHANGED_FILES.split():
     if not re.match('^[a-z0-9-]*\.xml?$', file.split('/')[-1]):
