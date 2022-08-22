@@ -23,7 +23,7 @@ if CHANGED_FILES == "":
     sys.exit(0)
 
 #Setzt den rootdir auf den aktuellen Firmenordner
-rootdir = CHANGED_FILES.split()[0].split('/')[0]
+rootdir = '../' + CHANGED_FILES.split()[0].split('/')[0]
 
 #Checkt, ob Dateinamen gueltig sind
 #Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
