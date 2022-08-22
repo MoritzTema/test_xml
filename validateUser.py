@@ -1,7 +1,6 @@
 import os 
 import json
 import sys
-import re
 
 CHANGED_FILES = os.environ.get("CHANGED_FILES")
 CURRENT_USER = os.environ.get("CURRENT_USER")
