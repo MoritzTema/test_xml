@@ -16,7 +16,7 @@ def validate(xml_path: str, xsd_path: str) -> bool:
     return result
 
 
-rootdir = CHANGED_FILES.split()[0]
+rootdir = CHANGED_FILES.split()[0].split('/')[0]
 #Durchlaueft das gesamte Repo und checkt alle .xml Dateien
 
 for subdir, dirs, files in os.walk(rootdir):
