@@ -32,7 +32,7 @@ for file in CHANGED_FILES.split():
         print("Invalid file name!")
         sys.exit(1)
 
-#Durchlaueft das gesamte Repo und checkt alle .xml Dateien
+#Durchlaueft den aktuellen Firmenordner und checkt alle .xml Dateien
 for subdir, dirs, files in os.walk(rootdir):
     for file in files:
         filepath = subdir + os.sep + file
