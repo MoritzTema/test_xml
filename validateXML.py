@@ -16,10 +16,17 @@ def validate(xml_path: str, xsd_path: str) -> bool:
     return result
 
 
+#Setz den rootdir auf den aktuellen Firmenordner
 rootdir = CHANGED_FILES.split()[0].split('/')[0]
-print("rootdir:" + rootdir)
-#Durchlaueft das gesamte Repo und checkt alle .xml Dateien
 
+#Checkt REGEX, ob Dateinamen gueltig sind
+#Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
+for file in CHANGED_FILES.split():
+    if not re.match('^[a-z0-9-]*\.xml?$', file.split('/')[-1]):
+        print("Invalid file name!")
+        sys.exit(1)
+
+#Durchlaueft das gesamte Repo und checkt alle .xml Dateien
 for subdir, dirs, files in os.walk(rootdir):
     for file in files:
         filepath = subdir + os.sep + file

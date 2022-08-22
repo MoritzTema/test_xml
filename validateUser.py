@@ -22,13 +22,6 @@ if CHANGED_FILES == "":
     print("No changes detected.")
     sys.exit(0)
 
-#Checkt REGEX, ob Dateinamen gueltig sind
-#Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
-for file in CHANGED_FILES.split():
-    if not re.match('^[a-z0-9-]*\.xml?$', file.split('/')[-1]):
-        print("Invalid file name!")
-        sys.exit(1)
-
 #Der erste oberste Pfad wird als einzige gueltige Firma anerkannt
 #Existiert diese nicht, oder aendert sie sich innerhalb eines Pull Requests, ist der Test ungueltig
 currentCompany = CHANGED_FILES.split()[0].split('/')[0]
