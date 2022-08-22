@@ -8,7 +8,7 @@
     <Firmware_Version>1.0</Firmware_Version>
     <Hardware_Version>DB</Hardware_Version>
     <Frequency>902</Frequency>
-    <TX>
+    <T>
     <!-- A PTM can only transmit -->
      <EURID>
        <EEP  LinkEntry="Outbound">
@@ -17,7 +17,7 @@
          <Type>0x02</Type>
        </EEP>
      </EURID>
-    </TX>
+    </T>
   </Device>
   <!-- No receiving, no recom -->
 </Enocean_Devices>
