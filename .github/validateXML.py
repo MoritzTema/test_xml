@@ -30,8 +30,9 @@ print(rootdir)
 #Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
 for file in CHANGED_FILES.split():
     if not re.match('^[a-z0-9-]*\.xml?$', file.split('/')[-1]):
-        print("Invalid file name!")
-        sys.exit(1)
+        #print("Invalid file name!")
+        print('echo "::error::Filename $filename doesnt match possible files" && exit 1')
+        #sys.exit(1)
 
 #Durchlaueft den aktuellen Firmenordner und checkt alle .xml Dateien
 for subdir, dirs, files in os.walk(rootdir):
