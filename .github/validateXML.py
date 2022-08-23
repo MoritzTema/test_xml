@@ -24,14 +24,12 @@ if CHANGED_FILES == "":
 
 #Setzt den rootdir auf den aktuellen Firmenordner
 rootdir = './' + CHANGED_FILES.split()[0].split('/')[0]
-print(rootdir)
 
 #Checkt, ob Dateinamen gueltig sind
 #Gueltig ist nur wenn: Nur kleine Buchstaben, nur Zahlen, nur Bindestriche, muss mit '.xml' enden
 for file in CHANGED_FILES.split():
     if not re.match('^[a-z0-9-]*\.xml?$', file.split('/')[-1]):
-        #print("Invalid file name!")
-        print('::error::' + file.split('/')[-1] + 'invalid file name!')
+        print('::error::' + file.split('/')[-1] + ' invalid file name!')
         sys.exit(1)
 
 #Durchlaueft den aktuellen Firmenordner und checkt alle .xml Dateien
@@ -42,7 +40,7 @@ for subdir, dirs, files in os.walk(rootdir):
             if validate(filepath, ".github/schema.xsd"):
                 print(filepath + " valid!")
             else:
-                print(filepath + " not vaild!")
+                print('::error::' + filepath + ' not vaild!')
                 sys.exit(1)
 
 sys.exit(0)
