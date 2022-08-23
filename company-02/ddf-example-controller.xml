@@ -2,7 +2,7 @@
 <Enocean_Devices 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="./ReCom_Device_Description_Schema.xsd" schemaVersion="1.3">
   <Device Product_ID="0xFFFFFFFFFFFF">
-    <Nam>ExampleController</Nam>
+    <Name>ExampleController</Name>
     <!-- Short Description of the Device, this is a PTM like device-->
     <Description>This description could be a room heating controller</Description>
     <Firmware_Version>1.0</Firmware_Version>
