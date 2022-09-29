@@ -30,7 +30,7 @@ def createXML(paths, IDs):
     print('Creating xml...')
     save_path_file = "../index.xml"
 
-    with open(save_path_file, "w") as f:
+    with open(save_path_file, "x") as f:
         f.write(xml_str)
 
 
