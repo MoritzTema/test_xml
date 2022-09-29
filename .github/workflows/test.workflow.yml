@@ -75,18 +75,3 @@ jobs:
       - name: Run user validation
         run: |
           python .github/validateUser.py
-
-
-  create-index:
-    runs-on: ubuntu-latest
-    needs: [validate-xml, validate-user]
-
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-      
-      - name: Run index creation
-        run: |
-          python .github/createIndex.py
