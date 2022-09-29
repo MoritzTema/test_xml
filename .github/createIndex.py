@@ -30,7 +30,7 @@ def createXML(paths, IDs):
     print('Creating xml...')
     save_path_file = "../index.xml"
 
-    with open(save_path_file, "x") as f:
+    with open(save_path_file, "w") as f:
         f.write(xml_str)
 
 
@@ -49,7 +49,7 @@ for subdir, dirs, files in os.walk(rootDir, topdown=True):
 
     for file in files:
        filepath = subdir + os.sep + file
-       if filepath.endswith('.xml'):
+       if filepath.endswith('.xml') and not filepath.endswith('index.xml'):
         productID = getProductID(filepath)
 
         paths.append([subdir])
