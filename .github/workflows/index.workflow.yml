@@ -20,15 +20,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
+      - uses: mikeal/publish-to-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN}}
+          BRANCH_NAME: 'master'
         with:
           python-version: '3.x'
       
       - name: Run index creation
         run: |
            python .github/createIndex.py >> index.xml
-           git status
-           git config user.email "steinbusch@tema.de"
-           git config user.name "MoritzTema"
-           git add index.xml 
-           git commit -m "Updated index"
-           git push
+           
