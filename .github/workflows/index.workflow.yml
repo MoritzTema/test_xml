@@ -27,5 +27,5 @@ jobs:
         run: |
            python .github/createIndex.py >> index.xml
            git status
-           git add index.html 
+           git add index.xml 
            git commit -m "Updated index"
