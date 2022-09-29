@@ -87,4 +87,4 @@ jobs:
       
       - name: Run index creation
         run: |
-          python ./github/createIndex.py
+          python .github/createIndex.py
