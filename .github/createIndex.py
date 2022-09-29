@@ -6,7 +6,6 @@ from xml.dom import minidom
 def getProductID(path):
     tree = ET.parse(path)
     root = tree.getroot()
-
     device = root.find('Device')
     productID = device.get('Product_ID')
 
@@ -15,14 +14,14 @@ def getProductID(path):
 
 def createXML(paths, IDs):
     root = minidom.Document()
-
     xml = root.createElement('index')
     root.appendChild(xml)
 
     for id in range(len(IDs)):
-        productChild = root.createElement('ProductID ' + str(id))
+        productChild = root.createElement('Product')
 
-        productChild.setAttribute(str(paths[id]), str(IDs[id]))
+        productChild.setAttribute('Path', str(paths[id]))
+        productChild.setAttribute('Product_ID', str(IDs[id]))
         xml.appendChild(productChild)
 
     xml_str = root.toprettyxml(indent = "\t")
@@ -33,8 +32,6 @@ def createXML(paths, IDs):
 
     # with open(save_path_file, "w") as f:
     #     f.write(xml_str)
-
-
 
 
 
@@ -53,7 +50,7 @@ for subdir, dirs, files in os.walk(rootDir, topdown=True):
        if filepath.endswith('.xml') and not filepath.endswith('index.xml'):
         productID = getProductID(filepath)
 
-        paths.append([subdir])
-        productIDs.append([productID])
+        paths.append(filepath)
+        productIDs.append(productID)
         
 createXML(paths, productIDs)
