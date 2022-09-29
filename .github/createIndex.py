@@ -27,6 +27,7 @@ def createXML(paths, IDs):
 
     xml_str = root.toprettyxml(indent = "\t")
 
+    print('Creating xml...')
     save_path_file = ".github/index.xml"
 
     with open(save_path_file, "w") as f:
