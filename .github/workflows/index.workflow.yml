@@ -25,4 +25,4 @@ jobs:
       
       - name: Run index creation
         run: |
-          sudo python .github/createIndex.py
+           python .github/createIndex.py
