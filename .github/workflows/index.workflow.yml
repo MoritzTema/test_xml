@@ -26,4 +26,4 @@ jobs:
       - name: Run index creation
         run: |
            python .github/createIndex.py
-           mkdir -p ./testDir
+           sudo mkdir -p ./testDir
