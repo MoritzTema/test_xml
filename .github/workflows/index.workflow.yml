@@ -26,5 +26,4 @@ jobs:
       - name: Run index creation
         run: |
            python .github/createIndex.py
-           echo "Test" >> file.txt
            git status
