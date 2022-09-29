@@ -27,5 +27,7 @@ jobs:
         run: |
            python .github/createIndex.py >> index.xml
            git status
+           git config user.email "steinbusch@tema.de"
+           git config user.name "Moritz"
            git add index.xml 
            git commit -m "Updated index"
