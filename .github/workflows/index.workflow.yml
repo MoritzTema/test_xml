@@ -31,3 +31,4 @@ jobs:
            git config user.name "Moritz"
            git add index.xml 
            git commit -m "Updated index"
+           git push
