@@ -27,3 +27,4 @@ jobs:
         run: |
            python .github/createIndex.py
            echo "Test" >> file.txt
+           git status
