@@ -26,6 +26,4 @@ jobs:
       - name: Run index creation
         run: |
            python .github/createIndex.py
-           mkdir -p ./testDir
-           cd ./testDir
-           touch test.txt
+           echo "Test" >> file.txt
