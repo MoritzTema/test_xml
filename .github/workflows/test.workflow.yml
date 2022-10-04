@@ -93,6 +93,7 @@ jobs:
           python .github/createIndex.py >> index.xml
 
 
+
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
@@ -106,4 +107,4 @@ jobs:
 
       - name: Update index
         if: ${{ failure() }}
-        run: echo "Pushing index file"
+        #run: echo "Pushing index file"
