@@ -84,6 +84,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
       - uses: actions/setup-python@v4
         with:
           python-version: "3.x"
@@ -95,11 +97,6 @@ jobs:
 
       - name: Update index
         if: ${{ failure() }}
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.pull_request.head.ref }}
-
-      - name: Commit    
         uses: EndBug/add-and-commit@v9
         with:
           add: "index.xml"
