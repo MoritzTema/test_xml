@@ -28,6 +28,7 @@ currentCompany = CHANGED_FILES.split()[0].split('/')[0]
 #Checken, ob in nur einem Pfad Aenderungen vorgenommen wurden
 for file in CHANGED_FILES.split():
     if currentCompany == file.split('/')[0]:
+        print("Paths: " + file.split('/')[0])
         pass
     else:
         print('::error::You are not allowed to make changes in multiple directories!')
