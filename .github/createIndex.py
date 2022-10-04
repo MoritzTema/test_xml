@@ -29,6 +29,7 @@ def createXML(paths, IDs):
 
 
     with open('index.xml') as oldIndex:
+        print(oldIndex.read())
         if xml_str == oldIndex.read():
             sys.exit(0)
         else:        
