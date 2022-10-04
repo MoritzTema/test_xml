@@ -95,10 +95,12 @@ jobs:
 
       - name: Update index
         if: ${{ failure() }}
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-      - uses: EndBug/add-and-commit@v9
+
+      - name: Commit    
+        uses: EndBug/add-and-commit@v9
         with:
           add: "index.xml"
           message: "Updated index file"
