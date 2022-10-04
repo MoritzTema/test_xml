@@ -106,3 +106,4 @@ jobs:
 
       - name: Update index
         if: ${{ failure() }}
+        run: echo "Pushing index file"
