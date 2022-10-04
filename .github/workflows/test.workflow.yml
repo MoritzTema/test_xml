@@ -91,7 +91,7 @@ jobs:
 
         - name: Check index
           run: |
-            python .github/createIndex.py > index.xml
+            python .github/createIndex.py >> index.xml
 
         - name: Update index 
           if: ${{ failure() }}
