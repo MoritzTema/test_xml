@@ -100,4 +100,5 @@ jobs:
           run: |
             echo "Index braucht update"
             git status
+            echo index.xml
           
