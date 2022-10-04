@@ -27,12 +27,8 @@ def createXML(paths, IDs):
 
     xml_str = root.toprettyxml(indent = "\t")
 
-    print("Hallo")
 
     with open('index.xml') as oldIndex:
-        print("oldIndex: " + oldIndex.read())
-        print("xml_str: " + xml_str)
-        print("In open")
         if xml_str == oldIndex.read():
             sys.exit(0)
         else:        
