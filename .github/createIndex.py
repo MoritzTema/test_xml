@@ -1,4 +1,5 @@
 import os
+import sys
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
@@ -26,12 +27,12 @@ def createXML(paths, IDs):
 
     xml_str = root.toprettyxml(indent = "\t")
 
-    print(xml_str)
-    # print('Creating xml...')
-    # save_path_file = "../index.xml"
-
-    # with open(save_path_file, "w") as f:
-    #     f.write(xml_str)
+    with open('../index.xml') as oldIndex:
+        if xml_str == oldIndex.read():
+            sys.exit(0)
+        else:        
+            print(xml_str)
+            sys.exit(1)
 
 
 

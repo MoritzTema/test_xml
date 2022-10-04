@@ -89,10 +89,13 @@ jobs:
           with:
             python-version: "3.x"
 
-        - name: Run index creation
+        - name: Check index
           run: |
             python .github/createIndex.py >> index.xml
 
-        - name: Publish index 
-          uses: mikeal/publish-to-github-action@master
+        - name: Update index 
+          if: ${{ failure() }}
+          #commit...
+          #uses: mikeal/publish-to-github-action@master
+          run: echo "Index braucht update"
           
