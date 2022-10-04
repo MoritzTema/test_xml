@@ -91,14 +91,15 @@ jobs:
 
         - name: Check index
           run: |
-            python .github/createIndex.py > index.xml
+            python .github/createIndex.py >> index.xml
 
         - name: Update index 
           if: ${{ failure() }}
-          #commit...
-          #uses: mikeal/publish-to-github-action@master
-          run: |
-            echo "Index braucht update"
-            git status
-            echo "$(cat index.xml)"
+          uses: EndBug/add-and-commit@v9
+          with:
+            add: 'index.xml'
+            message: 'Updated index file'
+            committer_name: 'GitHub Actions'
+            committer_email: 'actions@github.com'
+
           

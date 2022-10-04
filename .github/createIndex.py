@@ -27,15 +27,12 @@ def createXML(paths, IDs):
 
     xml_str = root.toprettyxml(indent = "\t")
 
-
     with open('index.xml') as oldIndex:
-        print(oldIndex.read())
         if xml_str == oldIndex.read():
-            sys.exit(0)
+            sys.exit(1)
         else:        
             print(xml_str)
             sys.exit(1)
-
 
 
 rootDir = '../'
