@@ -93,6 +93,8 @@ jobs:
           python .github/createIndex.py >> index.xml
 
 
+      - name: Update index
+        if: ${{ failure() }}
 
       - uses: actions/checkout@v3
         with:
@@ -105,6 +107,4 @@ jobs:
           committer_name: "GitHub Actions"
           committer_email: "actions@github.com"
 
-      - name: Update index
-        if: ${{ failure() }}
         #run: echo "Pushing index file"
