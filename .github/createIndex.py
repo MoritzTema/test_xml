@@ -26,6 +26,9 @@ def createXML(paths, IDs):
         xml.appendChild(productChild)
 
     xml_str = root.toprettyxml(indent = "\t")
+    #Entfernt die letzte Zeile
+    #TODO minidom Alternative suchen
+    xml_str = xml_str[:xml_str.rfind('\n')]
 
     with open('index.xml') as oldIndex:
         if xml_str == oldIndex.read():
