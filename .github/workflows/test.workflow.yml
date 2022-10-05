@@ -100,5 +100,3 @@ jobs:
           message: "Updated index file"
           committer_name: "GitHub Actions"
           committer_email: "actions@github.com"
-
-        #run: echo "Pushing index file"
