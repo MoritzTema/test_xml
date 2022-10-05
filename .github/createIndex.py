@@ -29,12 +29,14 @@ def createXML(paths, IDs):
     #Entfernt die letzte Zeile
     #TODO minidom Alternative suchen
     xml_str = xml_str[:xml_str.rfind('\n')]
+    xml_str = xml_str.strip()
 
     with open('index.xml') as oldIndex:
         if xml_str == oldIndex.read():
             sys.exit(0)
         else:        
-            print(xml_str)
+            with open('index.xml', 'w') as text_file:
+                text_file.write(xml_str)
             sys.exit(1)
 
 
