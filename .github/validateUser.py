@@ -6,7 +6,7 @@ CHANGED_FILES = os.environ.get("CHANGED_FILES")
 CURRENT_USER = os.environ.get("CURRENT_USER")
 ALLOWED_USERS = os.environ.get("ALLOWED_USERS")
 
-print(CHANGED_FILES.__len__)
+print(CHANGED_FILES.split().__len__)
 
 allowedUsersReadable = json.loads(ALLOWED_USERS)
 
