@@ -18,8 +18,8 @@ for user in allowedUsersReadable["administrators"]:
         
 #Wenn keine Aenderungen erkannt werden, bzw. eine Aenderung 1:1 rueckgaengig gemacht wurde, 
 #ist der Test gueltig
-if CHANGED_FILES == "":
-    print("No changes detected.")
+if CHANGED_FILES == "" or (len(CHANGED_FILES.split()) == 1 and CHANGED_FILES.split().split('/')[1] == 'index.xml'):
+    print("No changes detected. (index.xml will be ignored)")
     sys.exit(0)
 
 #Der erste oberste Pfad wird als einzige gueltige Firma anerkannt
