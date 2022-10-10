@@ -6,8 +6,6 @@ CHANGED_FILES = os.environ.get("CHANGED_FILES")
 CURRENT_USER = os.environ.get("CURRENT_USER")
 ALLOWED_USERS = os.environ.get("ALLOWED_USERS")
 
-print(len(CHANGED_FILES.split()))
-
 allowedUsersReadable = json.loads(ALLOWED_USERS)
 
 #Checken ob CURRENT_USER Administrator ist. Falls ja, alle Aenderungen erlauben
@@ -18,7 +16,7 @@ for user in allowedUsersReadable["administrators"]:
         
 #Wenn keine Aenderungen erkannt werden, bzw. eine Aenderung 1:1 rueckgaengig gemacht wurde, 
 #ist der Test gueltig
-if CHANGED_FILES == "" or (len(CHANGED_FILES.split()) == 1 and CHANGED_FILES.split().split('/')[1] == 'index.xml'):
+if CHANGED_FILES == "" or (len(CHANGED_FILES.split()) == 1 and CHANGED_FILES.split()[0].split('/')[0] == 'index.xml'):
     print("No changes detected. (index.xml will be ignored)")
     sys.exit(0)
 
