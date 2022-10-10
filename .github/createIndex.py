@@ -37,11 +37,14 @@ def createXML(paths, IDs):
     #Wenn nicht => Aktuell generierten Index in index.xml schreiben
     with open('index.xml') as oldIndex:
         if xml_str == oldIndex.read():
+            print('Index valid!')
             sys.exit(0)
         else:        
             with open('index.xml', 'w') as text_file:
                 text_file.write(xml_str)
-            sys.exit(1)
+                print('::error::Index not valid!')
+                print('::error::Index will be updated! All checks will re-run now!')
+                sys.exit(1)
 
 
 rootDir = '../'
