@@ -6,7 +6,7 @@ CHANGED_FILES = os.environ.get("CHANGED_FILES")
 CURRENT_USER = os.environ.get("CURRENT_USER")
 ALLOWED_USERS = os.environ.get("ALLOWED_USERS")
 
-print(CHANGED_FILES)
+print(CHANGED_FILES.__len__)
 
 allowedUsersReadable = json.loads(ALLOWED_USERS)
 
@@ -15,7 +15,6 @@ for user in allowedUsersReadable["administrators"]:
     if user == CURRENT_USER:
         print("Welcome Administrator!")
         sys.exit(0)
-
         
 #Wenn keine Aenderungen erkannt werden, bzw. eine Aenderung 1:1 rueckgaengig gemacht wurde, 
 #ist der Test gueltig
