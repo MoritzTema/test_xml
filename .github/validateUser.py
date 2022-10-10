@@ -6,6 +6,8 @@ CHANGED_FILES = os.environ.get("CHANGED_FILES")
 CURRENT_USER = os.environ.get("CURRENT_USER")
 ALLOWED_USERS = os.environ.get("ALLOWED_USERS")
 
+print(CHANGED_FILES)
+
 allowedUsersReadable = json.loads(ALLOWED_USERS)
 
 #Checken ob CURRENT_USER Administrator ist. Falls ja, alle Aenderungen erlauben
