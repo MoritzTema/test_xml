@@ -15,7 +15,9 @@ for user in allowedUsersReadable["administrators"]:
         sys.exit(0)
         
 #Wenn keine Aenderungen erkannt werden, bzw. eine Aenderung 1:1 rueckgaengig gemacht wurde, 
-#ist der Test gueltig
+#ist der Test gueltig;
+#Wenn eine Datei geloescht wurde, und sich NUR die 'index.xml' aendert,
+#ist der Test guelitg
 if CHANGED_FILES == "" or (len(CHANGED_FILES.split()) == 1 and CHANGED_FILES.split()[0].split('/')[0] == 'index.xml'):
     print("No changes detected. (index.xml will be ignored)")
     sys.exit(0)
