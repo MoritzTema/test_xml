@@ -3,7 +3,7 @@ import sys
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
-#List die productID aus
+#List die productID aus den im path angegebenen DDF aus
 def getProductID(path):
     tree = ET.parse(path)
     root = tree.getroot()
@@ -18,6 +18,8 @@ def createXML(paths, IDs):
     xml = root.createElement('index')
     root.appendChild(xml)
 
+#Durchlaueft alle Pfade und die passenden IDs
+#Fuegt diese in einen xml string('xml_str') zusammen
     for id in range(len(IDs)):
         productChild = root.createElement('Product')
 
@@ -31,6 +33,8 @@ def createXML(paths, IDs):
     xml_str = xml_str[:xml_str.rfind('\n')]
     xml_str = xml_str.strip()
 
+    #Wenn der aktuell generierte Index mit dem Index aus index.xml uebereinstimmt => Test gueltig
+    #Wenn nicht => Aktuell generierten Index in index.xml schreiben
     with open('index.xml') as oldIndex:
         if xml_str == oldIndex.read():
             sys.exit(0)
@@ -46,7 +50,7 @@ paths = []
 productIDs = []
 
 #Durchlaueft alle Ordner außer .github und .git
-#Ignoriert alle Dateien, die nicht .xml sind
+#Ignoriert alle Dateien, die nicht .xml sind und 'index.xml'
 for subdir, dirs, files in os.walk(rootDir, topdown=True):
     [dirs.remove(d) for d in list(dirs) if d in exclude]
 
@@ -55,6 +59,8 @@ for subdir, dirs, files in os.walk(rootDir, topdown=True):
        if filepath.endswith('.xml') and not filepath.endswith('index.xml'):
         productID = getProductID(filepath)
 
+        #Alle Pfade und productIDs werden gesammelt, um sie spaeter in den Index zu schreiben
+        #paths[0] = productIDs[0] usw. (Zugehoerige Werte)
         paths.append(filepath)
         productIDs.append(productID)
         
