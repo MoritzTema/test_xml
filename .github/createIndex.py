@@ -64,7 +64,7 @@ for subdir, dirs, files in os.walk(rootDir, topdown=True):
         #Alle Pfade und productIDs werden gesammelt, um sie spaeter in den Index zu schreiben
         #paths[0] = productIDs[0] usw. (Zugehoerige Werte)
         #'../test_xml/' wird nicht mit in die index.xml geschrieben 
-        paths.append(os.path.relpath(filepath, '../test_xml/..'))
+        paths.append(os.path.relpath(filepath, '../test_xml/'))
         productIDs.append(productID)
         
 createXML(paths, productIDs)
