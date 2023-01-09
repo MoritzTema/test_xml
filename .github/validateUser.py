@@ -8,11 +8,6 @@ ALLOWED_USERS = os.environ.get("ALLOWED_USERS")
 
 allowedUsersReadable = json.loads(ALLOWED_USERS)
 
-#Checken ob CURRENT_USER Administrator ist. Falls ja, alle Aenderungen erlauben
-for user in allowedUsersReadable["administrators"]:
-    if user == CURRENT_USER:
-        print("Welcome Administrator!")
-        sys.exit(0)
         
 #Wenn keine Aenderungen erkannt werden, bzw. eine Aenderung 1:1 rueckgaengig gemacht wurde, 
 #ist der Test gueltig;
