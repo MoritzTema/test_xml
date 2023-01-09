@@ -29,7 +29,6 @@ def createXML(paths, IDs):
 
     xml_str = root.toprettyxml(indent = "\t")
     #Entfernt die letzte Zeile
-    #TODO minidom Alternative suchen
     xml_str = xml_str[:xml_str.rfind('\n')]
     xml_str = xml_str.strip()
 
